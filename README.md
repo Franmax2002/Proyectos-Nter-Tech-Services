@@ -1,6 +1,6 @@
-# Proyectos-Nter-
+# Proyectos-Nter-Tech-Services
 
-Repositorio con mis ejercicios prácticos de **Data & BI** — pipelines ETL, modelado de datos, análisis estadístico, machine learning y dashboards — desarrollados durante mi formación en Nter.
+Repositorio con mis ejercicios prácticos de **Data & BI** — pipelines ETL, modelado de datos, análisis estadístico, machine learning y dashboards — desarrollados durante mi estancia en Nter.
 
 ## 📊 Power BI Service
 
