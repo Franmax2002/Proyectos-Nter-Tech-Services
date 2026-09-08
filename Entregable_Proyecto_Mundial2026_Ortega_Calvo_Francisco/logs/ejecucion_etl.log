@@ -1,0 +1,13 @@
+====================================================================== 
+2026-08-25 09:14:52 - INFO - INICIO PROCESO ETL - Mundial 2026 - Francisco Ortega 
+2026-08-25 09:14:52 - INFO - DIR_PROYECTO: C:\Users\EM2026008667\Entregable_Proyecto_Mundial2026_Ortega_Calvo_Francisco - Origen: mundial2026_estadisticas.csv - Destino: db_mundial2026_dw 
+====================================================================== 
+2026-08-25 09:14:52 - INFO - [E] EXTRACCION INICIADA
+2026-08-25 09:14:57 - INFO - [E] Extraccion completa: 30 registros leidos del CSV 
+2026-08-25 09:14:57 - INFO - [T] RF-01/RF-02/RF-03/RF-04: 22 registros validos - 8 registros en cuarentena
+2026-08-25 09:14:58 - INFO - [L] Carga en PostgreSQL completada (dim_jugadores, dim_partidos, fact_estadisticas, tb_errores_migracion)
+2026-08-25 09:14:59 - INFO - tb_ejecuciones_etl actualizada. Duracion total: 9s 
+====================================================================== 
+2026-08-25 09:14:59 - INFO - ETL FINALIZADO 
+2026-08-25 09:14:59 - INFO - Leidos: 30 - Insertados: 22 - Errores: 8 - Duracion: 9s 
+======================================================================

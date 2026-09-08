@@ -1,0 +1,9 @@
+motivo_rechazo|tabla_origen|datos_raw|fecha_deteccion
+RF-04: error de conversion de fecha (fila descartada por seguridad)|mundial2026_estadisticas.csv|jugador_equipo=Endrick - brasil; partido=Brasil vs España; goles=1; asistencias=0; fecha_partido=06-20-2026|2026-08-25
+RF-03: pais fuera del mundial (Alemania / Alemania vs Nigeria)|mundial2026_estadisticas.csv|jugador_equipo=Jamal Musiala - Alemania; partido=Alemania vs Nigeria; goles=2; asistencias=1; fecha_partido=2026-06-15|2026-08-25
+RF-03: pais fuera del mundial (Alemania / Alemania vs Nigeria)|mundial2026_estadisticas.csv|jugador_equipo= Florian Wirtz - Alemania ; partido=Alemania vs Nigeria; goles=1; asistencias=2; fecha_partido=2026-06-15|2026-08-25
+RF-03: pais fuera del mundial (Nigeria / Alemania vs Nigeria)|mundial2026_estadisticas.csv|jugador_equipo= Victor Osimhen - Nigeria ; partido=Alemania vs Nigeria; goles=1; asistencias=; fecha_partido=15-06-2026|2026-08-25
+RF-03: pais fuera del mundial (Min - corea del sur / Corea vs Italia)|mundial2026_estadisticas.csv|jugador_equipo= Son Heung-min - Corea del Sur ; partido=Corea vs Italia; goles=1; asistencias=; fecha_partido=2026-06-21|2026-08-25
+RF-03: pais fuera del mundial (Italia / Corea vs Italia)|mundial2026_estadisticas.csv|jugador_equipo=Nicolò Barella - Italia; partido=Corea vs Italia; goles=1; asistencias=1; fecha_partido=2026-06-21|2026-08-25
+RF-04: formato de fecha no reconocido: 2026/06/11|mundial2026_estadisticas.csv|jugador_equipo=Santiago Giménez - México; partido=México vs Sudáfrica; goles=2; asistencias=; fecha_partido=2026/06/11|2026-08-25
+RF-04: formato de fecha no reconocido: 2026/06/11|mundial2026_estadisticas.csv|jugador_equipo= Edson Alvarez - MÉXICO ; partido=México vs Sudáfrica; goles=0; asistencias=1; fecha_partido=2026/06/11|2026-08-25

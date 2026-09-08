@@ -1,0 +1,42 @@
+networks:
+  mundial2026_net:
+    driver: bridge
+
+volumes:
+  mundial2026_pgdata:
+
+services:
+  postgres_mundial2026:
+    image: postgres:16
+    container_name: postgres_mundial2026_dw
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: db_mundial2026_dw
+      POSTGRES_USER: admin_etl
+      POSTGRES_PASSWORD: Password123!
+    ports:
+      - "5432:5432"
+    volumes:
+      # Volumen nombrado -> los datos persisten aunque se recree el contenedor.
+      - mundial2026_pgdata:/var/lib/postgresql/data
+      # El DDL se monta en el directorio de inicialización oficial de la imagen
+      # de Postgres: se ejecuta automáticamente la PRIMERA vez que se crea el
+      # volumen de datos (tablas de negocio + staging quedan listas sin pasos
+      # manuales).
+      - ./sql/ddl_destino_postgresql.sql:/docker-entrypoint-initdb.d/01_ddl_destino_postgresql.sql:ro
+      - ./import:/import
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin_etl -d db_mundial2026_dw"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - mundial2026_net
+
+# Uso:
+#   docker compose up -d          -> levanta PostgreSQL en localhost:5432
+#   docker compose down           -> lo detiene (los datos se conservan en el volumen)
+#   docker compose down -v        -> lo detiene y BORRA también los datos (reinicio limpio)
+#
+# El paquete SSIS (src/) y el ODBC Destination se conectan a localhost:5432
+# con estas mismas credenciales (db_mundial2026_dw / admin_etl / Password123!).
