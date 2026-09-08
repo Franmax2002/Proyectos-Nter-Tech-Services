@@ -1,0 +1,43 @@
+2026-08-11 11:35:41 - INFO - ======================================================================
+2026-08-11 11:35:41 - INFO - INICIO PROCESO ETL - Fashion Shop S.A. - Francisco Ortega
+2026-08-11 11:35:41 - INFO - DIR_PROYECTO: c:\Users\EM2026008667\Entregable_Proyecto_Tienda_Ropa_Francisco_Ortega | Origen: BASE_DATOS_TIENDA_ROPAS_MARCAS | Destino: db_fashionshop_dw
+2026-08-11 11:35:41 - INFO - ======================================================================
+2026-08-11 11:35:41 - INFO - [E] EXTRACCION INICIADA
+2026-08-11 11:35:41 - INFO - [E] Conectando a SQL Server origen
+2026-08-11 11:35:41 - INFO - Conexion establecida: EM2026008667/BASE_DATOS_TIENDA_ROPAS_MARCAS
+2026-08-11 11:35:41 - INFO - Extraccion completa (SQL_SERVER): 10030 registros en 6 tablas
+2026-08-11 11:35:41 - INFO - [T] RF-02: filtrado de catalogo de moda
+2026-08-11 11:35:41 - INFO - RF-02: 2 productos descartados por categoria fuera de alcance (no moda)
+2026-08-11 11:35:41 - INFO - [T] RF-02: parseo financiero de precios (Precio_Compra / Precio_Venta)
+2026-08-11 11:35:41 - INFO - RF-02: 5 productos validos tras parseo financiero (de 5 de moda)
+2026-08-11 11:35:41 - INFO - [T] RF-01: desacoplamiento y validacion de Cliente_Data
+2026-08-11 11:35:41 - INFO - RF-01: 4 clientes validos | 3 en cuarentena
+2026-08-11 11:35:41 - INFO - [T] RF-03: estandarizacion de fechas e importes de Ventas
+2026-08-11 11:35:42 - INFO - RF-03: fechas invalidas=2500 | importes invalidos=497
+2026-08-11 11:35:42 - INFO - [T] Verificacion de integridad referencial de Ventas (producto/cliente)
+2026-08-11 11:35:42 - INFO - Ventas validas: 3035 | Ventas en cuarentena: 6965
+2026-08-11 11:35:42 - INFO - Total filas de cuarentena (Productos+Clientes+Ventas): 10142
+2026-08-11 11:35:42 - INFO - CSV exportado: Ventas_Validas.csv (3035 filas)
+2026-08-11 11:35:42 - INFO - CSV exportado: Ventas_Invalidas.csv (6965 filas)
+2026-08-11 11:35:42 - INFO - CSV exportado: tb_errores_migracion.csv (10142 filas)
+2026-08-11 11:35:42 - INFO - [L] FASE 4 - Conexion a PostgreSQL
+2026-08-11 11:35:42 - INFO - Conexion establecida: localhost:5432/db_fashionshop_dw
+2026-08-11 11:35:42 - INFO - DDL aplicado correctamente sobre db_fashionshop_dw
+2026-08-11 11:35:42 - INFO - [L] FASE 5 - Carga de dimensiones y hechos
+2026-08-11 11:35:42 - INFO - Cargada dim_categorias: 8 registros (upsert)
+2026-08-11 11:35:42 - INFO - Cargada dim_vendedores: 4 registros (upsert)
+2026-08-11 11:35:42 - INFO - Cargada dim_ubicaciones: 4 registros (upsert)
+2026-08-11 11:35:42 - INFO - Cargada dim_productos: 5 registros (upsert)
+2026-08-11 11:35:42 - INFO - Cargada dim_clientes: 4 registros (upsert)
+2026-08-11 11:35:42 - INFO - Cargada fact_ventas: 3035 registros (upsert)
+2026-08-11 11:35:42 - INFO - FASE 5 completada: 3060 registros upsert en dimensiones y hechos
+2026-08-11 11:35:42 - INFO - [L] FASE 6 - Carga de cuarentena
+2026-08-11 11:35:43 - INFO - Cuarentena: 10142 filas evaluadas para tb_errores_migracion
+2026-08-11 11:35:43 - INFO - tb_ejecuciones_etl actualizada. Duracion total: 2.07s
+2026-08-11 11:35:43 - INFO - RF-05: demostracion de triggers OK, 12 filas de auditoria generadas
+2026-08-11 11:35:43 - INFO - Cargada fact_ventas: 3035 registros (upsert)
+2026-08-11 11:35:43 - INFO - RF-06: idempotencia verificada. fact_ventas antes=3035 despues=3035
+2026-08-11 11:35:43 - INFO - ======================================================================
+2026-08-11 11:35:43 - INFO - ETL FINALIZADO
+2026-08-11 11:35:43 - INFO - Leidos: 10030 | Insertados: 3060 | Errores: 10142 | Duracion: 2.07s
+2026-08-11 11:35:43 - INFO - ======================================================================
