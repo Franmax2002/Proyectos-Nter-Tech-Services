@@ -1,0 +1,30 @@
+services:
+  postgres_geostat:
+    image: postgres:15
+    container_name: pg_geostat_dw
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: geostat_user
+      POSTGRES_PASSWORD: geostat_pass
+      POSTGRES_DB: db_geostat_dw
+    ports:
+      # Requisito de la especificación: exponer PostgreSQL en el puerto 5433
+      - "5433:5432"
+    volumes:
+      # Persistencia de datos entre reinicios del contenedor
+      - pg_geostat_data:/var/lib/postgresql/data
+      # El DDL se ejecuta automáticamente la PRIMERA vez que se crea el
+      # volumen (mecanismo estándar de la imagen oficial de Postgres:
+      # todo script .sql en /docker-entrypoint-initdb.d se lanza en orden
+      # alfabético al inicializar el clúster). Así, al levantar el
+      # contenedor las 3 tablas ya existen antes de correr el pipeline.
+      - ./sql:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U geostat_user -d db_geostat_dw"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pg_geostat_data:
+    driver: local
