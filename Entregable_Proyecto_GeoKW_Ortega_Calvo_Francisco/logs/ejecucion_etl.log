@@ -1,0 +1,22 @@
+2026-09-17 10:17:35 - INFO - ======================================================================
+2026-09-17 10:17:35 - INFO - INICIO DE EJECUCION DEL PIPELINE ETL - PROYECTO GEOKW
+2026-09-17 10:17:35 - INFO - ======================================================================
+2026-09-17 10:17:35 - INFO - Cargando GeoJSON de distritos desde: ./data/distritos_sevilla.geojson
+2026-09-17 10:17:35 - INFO - Las 11 geometrias son validas (cerradas y continuas).
+2026-09-17 10:17:35 - INFO - Distritos cargados: 11 | CRS: EPSG:4326
+2026-09-17 10:17:35 - INFO - Construyendo tabla maestra socioeconomica (data seeding INE / Ayuntamiento)...
+2026-09-17 10:17:35 - INFO - Tabla socioeconomica lista: 11 distritos, poblacion total 697233 hab., renta media 15992 EUR/persona (sin ponderar).
+2026-09-17 10:17:35 - INFO - Intento 1/3 de conexion a la API de Open Charge Map: https://api.openchargemap.io/v3/poi/
+2026-09-17 10:17:36 - INFO - Puntos de recarga obtenidos desde la API: 533
+2026-09-17 10:17:36 - INFO - Origen de los puntos de recarga: API (533 puntos)
+2026-09-17 10:17:36 - INFO - Cruzando puntos de recarga con poligonos de distrito (gpd.sjoin, predicate=within)...
+2026-09-17 10:17:36 - INFO - Spatial join completado. Validos: 352 | Cuarentena (fuera de distrito): 181
+2026-09-17 10:17:36 - INFO - Uniendo geometria, tabla socioeconomica y potencia agregada por distrito...
+2026-09-17 10:17:36 - INFO - Tabla maestra construida: 11 distritos.
+2026-09-17 10:17:36 - INFO - Densidad energetica calculada. Rango: [55.11, 459.93] kW/10k hab.
+2026-09-17 10:17:36 - INFO - IOI calculado. Rango: [0.00, 94.35]
+2026-09-17 10:17:36 - INFO - Generando visor cartografico...
+2026-09-17 10:17:36 - INFO - 181 puntos fuera de los 11 distritos excluidos del mapa (quedan registrados en el log, no se dibujan).
+2026-09-17 10:17:37 - INFO - Mapa guardado en: ./output/mapa_sevilla.html
+2026-09-17 10:17:37 - INFO - EJECUCION FINALIZADA CORRECTAMENTE. Distritos: 11 | Puntos validos: 352 | Puntos en cuarentena: 181 | Origen demografia/potencia: API | Duracion: 1.51 s
+2026-09-17 10:17:37 - INFO - ======================================================================
