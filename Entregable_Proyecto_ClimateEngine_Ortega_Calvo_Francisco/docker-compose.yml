@@ -1,0 +1,38 @@
+# Despliegue en contenedores de Climate Engine.
+#
+# Servicios:
+#   pipeline  - ejecuta el CLI (por defecto, el pipeline completo: --fase all)
+#   dashboard - cuadro de mando interactivo de Streamlit (http://localhost:8501)
+#
+# Ambos comparten, por volumen, el estado de las capas Bronze/Silver/Gold
+# y el fichero de log, para que el dashboard pueda leer lo que produce el
+# pipeline.
+#
+# Uso:
+#   docker compose run --rm pipeline                                   # pipeline completo
+#   docker compose run --rm pipeline --fase bronze --ciudad Madrid     # fase/ciudad concretas
+#   docker compose up dashboard                                        # cuadro de mando
+
+services:
+  pipeline:
+    build: .
+    container_name: climate_engine_pipeline
+    environment:
+      - CLIMATE_ENGINE_API_URL_OVERRIDE=${CLIMATE_ENGINE_API_URL_OVERRIDE:-}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    command: ["--fase", "all"]
+
+  dashboard:
+    build: .
+    container_name: climate_engine_dashboard
+    entrypoint: ["streamlit", "run", "dashboard/app.py", "--server.address=0.0.0.0"]
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    depends_on:
+      pipeline:
+        condition: service_completed_successfully

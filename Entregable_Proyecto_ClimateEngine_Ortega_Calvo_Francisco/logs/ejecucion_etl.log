@@ -1,0 +1,29 @@
+2026-09-23 10:59:35 - INFO - ======================================================================
+2026-09-23 10:59:35 - INFO - PRUEBA DE CONFIGURACION DE LOGGING - CLIMATE ENGINE
+2026-09-23 10:59:35 - INFO - ======================================================================
+2026-09-23 10:59:35 - INFO - Prueba de log sin tildes: conexion, extraccion, validacion
+2026-09-23 10:59:35 - WARNING - Prueba de log de aviso: fallo simulado de conexion a la API
+2026-09-23 10:59:36 - INFO - Gold finalizado. resumen_diario: 70 filas | media_movil_temp: 1680 filas | zscore_horario: 1680 filas
+2026-09-23 10:59:36 - INFO - ======================================================================
+2026-09-23 10:59:36 - INFO - INICIO DE EJECUCION DEL PIPELINE ETL - PROYECTO CLIMATE ENGINE
+2026-09-23 10:59:36 - INFO - ======================================================================
+2026-09-23 10:59:36 - INFO - Inicio de ingesta Bronze. id_lote=104cfc2a4d86 timestamp_utc=2026-09-23T08:59:36.376639+00:00
+2026-09-23 10:59:36 - INFO - Conexion a la API de Open-Meteo para Madrid: https://api.open-meteo.com/v1/forecast
+2026-09-23 10:59:36 - INFO - Datos obtenidos desde la API para Madrid: 336 registros horarios
+2026-09-23 10:59:36 - INFO - Conexion a la API de Open-Meteo para Barcelona: https://api.open-meteo.com/v1/forecast
+2026-09-23 10:59:36 - INFO - Datos obtenidos desde la API para Barcelona: 336 registros horarios
+2026-09-23 10:59:36 - INFO - Conexion a la API de Open-Meteo para Valencia: https://api.open-meteo.com/v1/forecast
+2026-09-23 10:59:36 - INFO - Datos obtenidos desde la API para Valencia: 336 registros horarios
+2026-09-23 10:59:36 - INFO - Conexion a la API de Open-Meteo para Sevilla: https://api.open-meteo.com/v1/forecast
+2026-09-23 10:59:36 - INFO - Datos obtenidos desde la API para Sevilla: 336 registros horarios
+2026-09-23 10:59:36 - INFO - Conexion a la API de Open-Meteo para Bilbao: https://api.open-meteo.com/v1/forecast
+2026-09-23 10:59:36 - INFO - Datos obtenidos desde la API para Bilbao: 336 registros horarios
+2026-09-23 10:59:36 - INFO - Bronze escrito para Madrid (origen=API): c:\Users\EM2026008667\Desktop\Proyectos internos\Entregable_Proyecto_ClimateEngine_Ortega_Calvo_Francisco\data\bronze\ciudad=Madrid\fecha_ingesta=2026-09-23\lote_104cfc2a4d86.json
+2026-09-23 10:59:36 - INFO - Bronze escrito para Barcelona (origen=API): c:\Users\EM2026008667\Desktop\Proyectos internos\Entregable_Proyecto_ClimateEngine_Ortega_Calvo_Francisco\data\bronze\ciudad=Barcelona\fecha_ingesta=2026-09-23\lote_104cfc2a4d86.json
+2026-09-23 10:59:36 - INFO - Bronze escrito para Valencia (origen=API): c:\Users\EM2026008667\Desktop\Proyectos internos\Entregable_Proyecto_ClimateEngine_Ortega_Calvo_Francisco\data\bronze\ciudad=Valencia\fecha_ingesta=2026-09-23\lote_104cfc2a4d86.json
+2026-09-23 10:59:36 - INFO - Bronze escrito para Sevilla (origen=API): c:\Users\EM2026008667\Desktop\Proyectos internos\Entregable_Proyecto_ClimateEngine_Ortega_Calvo_Francisco\data\bronze\ciudad=Sevilla\fecha_ingesta=2026-09-23\lote_104cfc2a4d86.json
+2026-09-23 10:59:36 - INFO - Bronze escrito para Bilbao (origen=API): c:\Users\EM2026008667\Desktop\Proyectos internos\Entregable_Proyecto_ClimateEngine_Ortega_Calvo_Francisco\data\bronze\ciudad=Bilbao\fecha_ingesta=2026-09-23\lote_104cfc2a4d86.json
+2026-09-23 10:59:36 - INFO - Ingesta Bronze finalizada. id_lote=104cfc2a4d86 | Ciudades desde API: 5 | Desde FALLBACK: 0 | Sin datos: 0
+2026-09-23 10:59:37 - INFO - Silver finalizado. Total leido: 1680 | Validos: 1680 | Cuarentena: 0
+2026-09-23 10:59:37 - INFO - Gold finalizado. resumen_diario: 70 filas | media_movil_temp: 1680 filas | zscore_horario: 1680 filas
+2026-09-23 10:59:37 - INFO - EJECUCION FINALIZADA CORRECTAMENTE.

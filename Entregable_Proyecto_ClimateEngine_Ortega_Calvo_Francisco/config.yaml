@@ -1,0 +1,55 @@
+# ================================================================
+# CONFIGURACION CENTRALIZADA - CLIMATE ENGINE
+# Parametros operativos del pipeline. Cargado por climate_engine/config.ipynb
+# ================================================================
+
+api:
+  url_base: "https://api.open-meteo.com/v1/forecast"
+  variables_horarias:
+    - temperature_2m
+    - relative_humidity_2m
+    - precipitation
+    - wind_speed_10m
+    - surface_pressure
+  forecast_days: 14
+  timezone: "UTC"
+  timeout_segundos: 15
+  max_reintentos: 3
+  backoff_factor: 2
+  status_forcelist: [429, 500, 502, 503, 504]
+  user_agent_var_entorno: "CLIMATE_ENGINE_USER_AGENT"
+  user_agent_valor_defecto: "ClimateEngineNter/1.0 (contacto: francisco.ortega@nter.es)"
+
+ubicaciones:
+  Madrid:
+    lat: 40.4168
+    lon: -3.7038
+  Barcelona:
+    lat: 41.3851
+    lon: 2.1734
+  Valencia:
+    lat: 39.4699
+    lon: -0.3763
+  Sevilla:
+    lat: 37.3891
+    lon: -5.9845
+  Bilbao:
+    lat: 43.2630
+    lon: -2.9350
+
+calidad_datos:
+  rango_temperatura_c: [-50.0, 60.0]
+  rango_humedad_pct: [0.0, 100.0]
+  rango_precipitacion_mm: [0.0, 1000.0]
+  rango_viento_kmh: [0.0, 400.0]
+  rango_presion_hpa: [850.0, 1085.0]
+
+rutas:
+  bronze: "data/bronze"
+  silver: "data/silver"
+  gold: "data/gold"
+  cuarentena: "data/silver/_cuarentena"
+  logs: "logs/ejecucion_etl.log"
+
+analitica:
+  ventana_media_movil_horas: 24
